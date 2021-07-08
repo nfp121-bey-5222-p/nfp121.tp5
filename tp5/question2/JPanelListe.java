@@ -64,7 +64,10 @@ public class JPanelListe extends JPanel implements ActionListener, ItemListener 
 
         boutonRechercher.addActionListener(this);
         // à compléter;
-
+        boutonRetirer.addActionListener(this);
+        boutonOccurrences.addActionListener(this);
+        ordreCroissant.addItemListener(this);
+        ordreDecroissant.addItemListener(this);
     }
 
     /** ne pas modifier les affichages, les classes de tests en ont besoin ... */
@@ -95,9 +98,9 @@ public class JPanelListe extends JPanel implements ActionListener, ItemListener 
 
     public void itemStateChanged(ItemEvent ie) {
         if (ie.getSource() == ordreCroissant)
-            ;// à compléter
+            Collections.sort(this.liste);// à compléter
         else if (ie.getSource() == ordreDecroissant)
-            ;// à compléter
+            Collections.sort(this.liste,Collections.reverseOrder());// à compléter
 
         texte.setText(liste.toString());
     }
@@ -107,6 +110,15 @@ public class JPanelListe extends JPanel implements ActionListener, ItemListener 
         // à compléter
         // à compléter
         // à compléter
+        Iterator<String> iter=this.liste.iterator();
+        while(iter.hasNext()){
+            String s=iter.next();
+            if(s.startsWith(prefixe)){
+                iter.remove();
+                resultat=true;
+                this.occurrences.put(s,0);
+            }
+        }
         return resultat;
     }
 

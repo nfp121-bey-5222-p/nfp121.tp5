@@ -2,6 +2,7 @@ package question1;
 
 import java.awt.*;
 import javax.swing.*;
+import java.awt.event.*;
 
 public class IHMTestEnsemble extends JFrame {
 
@@ -71,7 +72,11 @@ public class IHMTestEnsemble extends JFrame {
         button1 = new JButton("union");
         button1.setBackground(java.awt.Color.red);
         button1.setName("union");
-        button1.addActionListener(null  // à compléter, par une instance de
+        button1.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent ae){
+                IHMTestEnsemble.this.unionActionPerformed(ae);
+            }
+        }// à compléter, par une instance de
                                         // classe anonyme, usage de
                                         // unionActionPerformed voir en bas de
                                         // page
@@ -81,7 +86,11 @@ public class IHMTestEnsemble extends JFrame {
         button2 = new JButton("intersection");
         button2.setBackground(java.awt.Color.yellow);
         button2.setName("intersection");
-        button2.addActionListener(null  // à compléter, par une instance de
+        button2.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent ae){
+                IHMTestEnsemble.this.intersectionActionPerformed(ae);
+            }
+        }  // à compléter, par une instance de
                                         // classe anonyme,
                                         // intersectionActionPerformed voir en
                                         // bas de page
@@ -92,9 +101,12 @@ public class IHMTestEnsemble extends JFrame {
         button3.setBackground(java.awt.Color.pink);
         button3.setActionCommand("difference");
         button3.setName("difference");
-        button3.addActionListener(null  // à compléter, par une instance de
-                                        // classe anonyme, usage de
-                                        // differenceActionPerformed voir en bas
+        button3.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent ae){
+                IHMTestEnsemble.this.differenceActionPerformed(ae);
+            }  // à compléter, par une instance de
+            }                           // classe anonyme, usage de
+                                       // differenceActionPerformed voir en bas
                                         // de page
         );
 
@@ -102,9 +114,12 @@ public class IHMTestEnsemble extends JFrame {
         button4 = new JButton("diffSymetrique");
         button4.setBackground(java.awt.Color.cyan);
         button4.setName("diffSymetrique");
-        button4.addActionListener(null  // à compléter, par une instance de
+        button4.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent ae){
+                IHMTestEnsemble.this.diffSymetriqueActionPerformed(ae);
+            }  // à compléter, par une instance de
                                         // classe anonyme, usgae de
-                                        // diffSymetriqueActionPerformed voir en
+            }                              // diffSymetriqueActionPerformed voir en
                                         // bas de page
         );
 
